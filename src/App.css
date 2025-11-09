@@ -1,3 +1,10 @@
+/* Apply border-box sizing everywhere */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 .app-container {
     max-width: 580px;
     margin: 40px auto;
@@ -18,13 +25,16 @@ h1 {
     display: flex;
     gap: 10px;
     margin-bottom: 20px;
+    flex-wrap: wrap; /* prevents overflow */
 }
 
 .expense-form input {
     flex: 1;
+    min-width: 0; /* prevents flex overflow */
     padding: 8px 10px;
     border: 1px solid #ccc;
     border-radius: 6px;
+    width: 100%;
 }
 
 .expense-form button {
@@ -35,6 +45,7 @@ h1 {
     border: none;
     border-radius: 6px;
     transition: background 0.3s ease;
+    white-space: nowrap;
 }
 
 .expense-form button:hover {
@@ -56,6 +67,7 @@ h1 {
     padding: 10px 14px;
     border-radius: 8px;
     box-shadow: 0 0 4px rgba(0,0,0,0.1);
+    flex-wrap: wrap;
 }
 
 .expense-item span {
@@ -91,18 +103,10 @@ h1 {
         width: 100%;
     }
 
-    .expense-form button {
-        padding: 10px;
-    }
-
     .expense-item {
         flex-direction: column;
         align-items: flex-start;
         gap: 6px;
-    }
-
-    .expense-item span {
-        width: 100%;
     }
 
     .expense-item button {
