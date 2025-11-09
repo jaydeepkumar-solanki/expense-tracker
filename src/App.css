@@ -1,18 +1,19 @@
-
 .app-container {
     max-width: 580px;
-    margin: 40px;
+    margin: 40px auto;
     background: #f8f9fa;
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 0 8px rgba(0,0,0,0.1);
 }
 
+/* Headings */
 h1 {
     text-align: center;
     margin-bottom: 20px;
 }
 
+/* Expense form layout */
 .expense-form {
     display: flex;
     gap: 10px;
@@ -21,14 +22,26 @@ h1 {
 
 .expense-form input {
     flex: 1;
-    padding: 8px;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
 }
 
 .expense-form button {
     padding: 8px 12px;
     cursor: pointer;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    transition: background 0.3s ease;
 }
 
+.expense-form button:hover {
+    background: #0056b3;
+}
+
+/* Expense list styling */
 .expense-list {
     display: flex;
     flex-direction: column;
@@ -40,11 +53,80 @@ h1 {
     justify-content: space-between;
     align-items: center;
     background: white;
-    padding: 10px;
+    padding: 10px 14px;
     border-radius: 8px;
+    box-shadow: 0 0 4px rgba(0,0,0,0.1);
 }
 
+.expense-item span {
+    word-break: break-word;
+}
+
+.expense-item button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+/* Empty state */
 .no-expense {
     text-align: center;
     color: #888;
+}
+
+/* ✅ Responsive design */
+@media (max-width: 768px) {
+    .app-container {
+        margin: 20px;
+        padding: 15px;
+    }
+
+    .expense-form {
+        flex-direction: column;
+    }
+
+    .expense-form input, 
+    .expense-form button {
+        width: 100%;
+    }
+
+    .expense-form button {
+        padding: 10px;
+    }
+
+    .expense-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+
+    .expense-item span {
+        width: 100%;
+    }
+
+    .expense-item button {
+        align-self: flex-end;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .app-container {
+        margin: 10px;
+        padding: 12px;
+    }
+
+    .expense-form input, 
+    .expense-form button {
+        font-size: 1rem;
+        padding: 10px;
+    }
+
+    .expense-item {
+        padding: 8px 10px;
+    }
 }
